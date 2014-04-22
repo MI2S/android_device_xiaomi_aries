@@ -17,14 +17,14 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/xiaomi/aries/configs/apns-conf.xml:system/etc/apns-conf.xml
-
 # include additional build utilities
 -include device/xiaomi/aries/utils.mk
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/xiaomi/aries/configs/apns-conf.xml:system/etc/apns-conf.xml
 
 PRODUCT_NAME := full_aries
 PRODUCT_DEVICE := aries
@@ -36,9 +36,14 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 ## VoiceProc modules                                                                                              
 PRODUCT_PACKAGES += voiceproc_init.img
 PRODUCT_PACKAGES += voiceproc.img
+
 # Wifi
 PRODUCT_PACKAGES += wpa_supplicant_overlay.conf
 PRODUCT_PACKAGES += p2p_supplicant_overlay.conf
+
+# Radio and Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=XiaomiQualcommRIL
 
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += \
