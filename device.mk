@@ -145,6 +145,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     tunnel.decode=false \
     tunnel.audiovideo.decode=false
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.aries.power_profile=middle
+
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1
@@ -246,6 +249,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.home.operator.numeric=46003 \
     ro.telephony.default_network=7 \
     ro.telephony.default_cdma_sub=0 \
+    ro.telephony.call_ring.delay=200 \
     persist.omh.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
