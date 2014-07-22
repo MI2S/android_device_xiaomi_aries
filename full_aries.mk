@@ -17,6 +17,13 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        VisualizationWallpapers
+
+
 # Get the long list of APNs
 PRODUCT_COPY_FILES := device/xiaomi/aries/configs/apns-conf.xml:system/etc/apns-conf.xml
 
@@ -40,10 +47,6 @@ PRODUCT_PACKAGES += voiceproc.img
 # Wifi
 PRODUCT_PACKAGES += wpa_supplicant_overlay.conf
 PRODUCT_PACKAGES += p2p_supplicant_overlay.conf
-
-# Radio and Telephony
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=XiaomiQualcommRIL
 
 # GMS
 PRODUCT_PROPERTY_OVERRIDES += \
